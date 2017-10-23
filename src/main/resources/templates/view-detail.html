@@ -9,9 +9,15 @@
 	<div th:replace="fragments/navbar :: navbar"></div>
 
 	<div class="container">
+		
 		<br />
 		<h3 th:text="'Detail Produk'">Detail Produk</h3>
 		<hr />
+		<div th:if="${statusUpdate=='sucess'}" class="alert alert-success">
+			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			<strong>Sukses!</strong> Data produk berhasil diubah!
+		</div>
+		
 		<table style="width: 100%;" class="table">
 			<tr>
 				<th style="width: 30%">Nama Produk</th>
