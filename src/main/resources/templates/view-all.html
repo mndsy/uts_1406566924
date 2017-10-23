@@ -47,7 +47,17 @@
 					<td class="text-left" th:text="${produk.deskripsi}">Deskripsi</td>
 					<td class="text-center" th:text="${produk.kategori}">Kategori</td>
 					<td class="text-center" th:text="${produk.pabrikan}">Pabrikan</td>
-					<td class="text-center"></td>
+					<td class="text-center">
+						<a th:href="'/product/view/'+${produk.id}">
+							<button class="btn btn-primary"><i class="fa fa-fw fa-search"></i></button>
+						</a>
+						<a th:href="'/product/update/'+${produk.id}">
+							<button class="btn btn-success"><i class="fa fa-fw fa-pencil"></i></button>
+						</a>
+						<a th:href="'/product/deactive/'+${produk.id}">
+							<button class="btn btn-success"><i class="fa fa-fw fa-minus-circle"></i></button>
+						</a>
+					</td>
 				</tr>
 			</tbody>
 		</table>
