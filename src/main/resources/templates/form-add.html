@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<div th:replace="fragments/head :: head"></div>
+</head>
+
+<body>
+	<div th:replace="fragments/navbar :: navbar"></div>
+
+	<div class="container">
+		<br />
+		<h3 th:text="'Tambah Produk Baru'">Tambah Produk Baru</h3>
+		<p style="color: red">
+			<small><i>*) Wajib diisi</i></small>
+		</p>
+		<hr />
+		<form class="form-horizontal" th:action="@{/product/add/submit}" method="POST">
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="nama">Nama Produk*</label>
+				<div class="input-group col-sm-8">
+					<span class="input-group-addon"><i class="fa fa-fw fa-pencil"></i></span> 
+					<input type="text" name="nama" class="form-control" required="required" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="deskripsi">Deskripsi Produk*</label>
+				<div class="input-group col-sm-8">
+					<span class="input-group-addon"><i class="fa fa-fw fa-pencil"></i></span> 
+					<input type="text" name="deskripsi" class="form-control" required="required" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="kategori">Kategori Produk*</label>
+				<div class="input-group col-sm-8">
+					<span class="input-group-addon"><i class="fa fa-fw fa-pencil"></i></span> 
+					<select class="form-control" id="kategori" name="kategori" required="required">
+						<option disabled="true" val="" selected="selected" th:text="'Pilih kategori produk...'"></option>
+						<option th:value="'Laptop'" th:text="'Laptop'"></option>
+						<option th:value="'Handphone'" th:text="'Handphone'"></option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="pabrikan">Pabrikan*</label>
+				<div class="input-group col-sm-8">
+					<span class="input-group-addon"><i class="fa fa-fw fa-pencil"></i></span> 
+					<input type="text" name="pabrikan" class="form-control" required="required" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="berat">Berat Produk*</label>
+				<div class="input-group col-sm-8">
+					<span class="input-group-addon"><i class="fa fa-fw fa-pencil"></i></span> 
+					<input type="number" name="berat" class="form-control" required="required" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="harga">Harga Produk*</label>
+				<div class="input-group col-sm-8">
+					<span class="input-group-addon">Rp</span> 
+					<input type="number" name="harga" class="form-control" required="required" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="tahunProduksi">Tahun Produksi*</label>
+				<div class="input-group col-sm-8">
+					<span class="input-group-addon"><i class="fa fa-fw fa-pencil"></i></span> 
+					<input type="number" name="tahunProduksi" class="form-control" required="required" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="jumlahStok">Jumlah Stok Tersedia*</label>
+				<div class="input-group col-sm-8">
+					<span class="input-group-addon"><i class="fa fa-fw fa-pencil"></i></span> 
+					<input type="number" name="jumlahStok" class="form-control" required="required" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="kondisi">Kondisi Produk*</label>
+				<div class="input-group col-sm-8">
+					<span class="input-group-addon"><i class="fa fa-fw fa-pencil"></i></span> 
+					<select class="form-control" id="kondisi" name="kondisi" required="required">
+						<option disabled="disabled" val="" selected="selected" th:text="'Pilih kondisi produk...'"></option>
+						<option th:value="'Baru'" th:text="'Baru'"></option>
+						<option th:value="'Bekas'" th:text="'Bekas'"></option>
+					</select>
+				</div>
+			</div>
+
+			<br />
+			<div class="text-center form-group">
+				<button class="btn btn-primary" type="submit" name="action" value="Simpan">Simpan</button>
+			</div>
+		</form>
+	</div>
+</body>
+
+<footer>
+	<br/>
+	<div th:replace="fragments/footer :: footer"></div>
+</footer>
+</html>
