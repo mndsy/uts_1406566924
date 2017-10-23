@@ -79,7 +79,6 @@ public class ProductController {
 		
 		productDAO.updateProduct(product);
 		
-		model.addAttribute("title", "Detail Produk " + product.getNama());
 		return "redirect:/product/view/" + id + "?statusUpdate=success";
 	}
 	
@@ -88,5 +87,32 @@ public class ProductController {
 		
 		model.addAttribute("title", "Tambah Produk Baru");
 		return "form-add";
+	}
+	
+	@RequestMapping("/product/add/submit")
+	public String addSubmit(Model model,
+			@RequestParam(value="nama") String nama,
+			@RequestParam(value="deskripsi") String deskripsi,
+			@RequestParam(value="kategori") String kategori,
+			@RequestParam(value="pabrikan") String pabrikan,
+			@RequestParam(value="berat") double berat,
+			@RequestParam(value="harga") int harga,
+			@RequestParam(value="tahunProduksi") int tahunProduksi,
+			@RequestParam(value="jumlahStok") int jumlahStok,
+			@RequestParam(value="kondisi") String kondisi) {
+		ProductModel product = new ProductModel();
+		product.setNama(nama);
+		product.setDeskripsi(deskripsi);
+		product.setKategori(kategori);
+		product.setPabrikan(pabrikan);
+		product.setBerat(berat);
+		product.setHarga(harga);
+		product.setTahunProduksi(tahunProduksi);
+		product.setJumlahStok(jumlahStok);
+		product.setKondisi(kondisi);
+		
+		productDAO.addProduct(product);
+		
+		return "redirect:/product/viewall?stat=success";
 	}
 }
