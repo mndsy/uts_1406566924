@@ -18,4 +18,5 @@ public class ProductModel {
 	private int tahunProduksi;
 	private int jumlahStok;
 	private String kondisi;
+	private boolean flagAktif;
 }

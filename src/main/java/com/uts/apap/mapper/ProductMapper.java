@@ -12,7 +12,7 @@ import com.uts.apap.model.ProductModel;
 @Mapper
 public interface ProductMapper {
 
-	@Select("SELECT * FROM product")
+	@Select("SELECT * FROM product WHERE flag_aktif=1")
 	@Results(value = {
 			@Result(property="id", column="id"),
 			@Result(property="nama", column="nama"),
@@ -23,7 +23,8 @@ public interface ProductMapper {
 			@Result(property="harga", column="harga"),
 			@Result(property="tahunProduksi", column="tahun_produksi"),
 			@Result(property="jumlahStok", column="jumlah_stok"),
-			@Result(property="kondisi", column="kondisi")
+			@Result(property="kondisi", column="kondisi"),
+			@Result(property="flagAktif", column="flag_aktif")
 	})
 	List<ProductModel> selectAllProduct();
 	
@@ -38,7 +39,8 @@ public interface ProductMapper {
 			@Result(property="harga", column="harga"),
 			@Result(property="tahunProduksi", column="tahun_produksi"),
 			@Result(property="jumlahStok", column="jumlah_stok"),
-			@Result(property="kondisi", column="kondisi")
+			@Result(property="kondisi", column="kondisi"),
+			@Result(property="flagAktif", column="flag_aktif")
 	})
 	ProductModel selectProduct(int id);
 }
