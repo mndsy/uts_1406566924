@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<div th:replace="fragments/head :: head"></div>
+</head>
+
+<body>
+	<div th:replace="fragments/navbar :: navbar"></div>
+
+	<div class="container">
+		<br />
+		<h3 th:text="'Detail Produk'">Detail Produk</h3>
+		<hr />
+		<table style="width: 100%;" class="table">
+			<tr>
+				<td style="width: 30%">Nama Produk</td>
+				<td th:text="${produk.nama}">Nama</td>
+			</tr>
+			<tr>
+				<td style="width: 30%">Deskripsi</td>
+				<td th:text="${produk.deskripsi}">Deskripsi</td>
+			</tr>
+			<tr>
+				<td style="width: 30%">Kategori</td>
+				<td th:text="${produk.kategori}">Kategori</td>
+			</tr>
+			<tr>
+				<td style="width: 30%">Pabrikan</td>
+				<td th:text="${produk.pabrikan}">Pabrikan</td>
+			</tr>
+			<tr>
+				<td style="width: 30%">Berat</td>
+				<td th:text="${produk.berat} + ' kg'">Berat (kg)</td>
+			</tr>
+			<tr>
+				<td style="width: 30%">Harga</td>
+				<td th:text="'Rp ' + ${produk.harga}">Rp Harga</td>
+			</tr>
+			<tr>
+				<td style="width: 30%">Tahun Produksi</td>
+				<td th:text="${produk.tahunProduksi}">Tahun Produksi</td>
+			</tr>
+			<tr>
+				<td style="width: 30%">Jumlah Stok</td>
+				<td th:text="${produk.jumlahStok}">Jumlah Stok</td>
+			</tr>
+			<tr>
+				<td style="width: 30%">Kondisi</td>
+				<td th:text="${produk.kondisi}">Kondisi</td>
+			</tr>
+		</table>
+	</div>
+	<div class="row">
+		<div class="col-sm-3">
+			<a th:href="'/product/update/'+${product.id}">
+				<button class="btn btn-primary">Ubah Data Produk</button>
+			</a>
+		</div>
+		<div class="col-sm-3" th:if="${produk.flagAktif == 1}">
+			<a th:href="'/product/deactive/'+${produk.id}">
+				<button class="btn btn-danger">Nonaktifkan Produk</button>
+			</a>
+		</div>
+	</div>
+</body>
+
+<footer>
+	<div th:replace="fragments/footer :: footer"></div>
+</footer>
+</html>
