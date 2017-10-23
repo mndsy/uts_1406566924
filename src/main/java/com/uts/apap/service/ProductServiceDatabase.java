@@ -22,4 +22,10 @@ public class ProductServiceDatabase implements ProductService {
 		return productMapper.selectAllProduct();
 	}
 
+	@Override
+	public ProductModel getProduct(int id) {
+		log.info("get product with id {}", id);
+		return productMapper.selectProduct(id);
+	}
+
 }

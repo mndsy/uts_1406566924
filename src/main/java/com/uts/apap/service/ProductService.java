@@ -6,4 +6,6 @@ import com.uts.apap.model.ProductModel;
 
 public interface ProductService {
 	List<ProductModel> getAllProducts();
+	
+	ProductModel getProduct(int id);
 }
