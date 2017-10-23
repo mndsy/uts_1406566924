@@ -14,58 +14,65 @@
 		<hr />
 		<table style="width: 100%;" class="table">
 			<tr>
-				<td style="width: 30%">Nama Produk</td>
+				<th style="width: 30%">Nama Produk</th>
 				<td th:text="${produk.nama}">Nama</td>
 			</tr>
 			<tr>
-				<td style="width: 30%">Deskripsi</td>
+				<th style="width: 30%">Deskripsi</th>
 				<td th:text="${produk.deskripsi}">Deskripsi</td>
 			</tr>
 			<tr>
-				<td style="width: 30%">Kategori</td>
+				<th style="width: 30%">Kategori</th>
 				<td th:text="${produk.kategori}">Kategori</td>
 			</tr>
 			<tr>
-				<td style="width: 30%">Pabrikan</td>
+				<th style="width: 30%">Pabrikan</th>
 				<td th:text="${produk.pabrikan}">Pabrikan</td>
 			</tr>
 			<tr>
-				<td style="width: 30%">Berat</td>
+				<th style="width: 30%">Berat</th>
 				<td th:text="${produk.berat} + ' kg'">Berat (kg)</td>
 			</tr>
 			<tr>
-				<td style="width: 30%">Harga</td>
+				<th style="width: 30%">Harga</th>
 				<td th:text="'Rp ' + ${produk.harga}">Rp Harga</td>
 			</tr>
 			<tr>
-				<td style="width: 30%">Tahun Produksi</td>
+				<th style="width: 30%">Tahun Produksi</th>
 				<td th:text="${produk.tahunProduksi}">Tahun Produksi</td>
 			</tr>
 			<tr>
-				<td style="width: 30%">Jumlah Stok</td>
+				<th style="width: 30%">Jumlah Stok</th>
 				<td th:text="${produk.jumlahStok}">Jumlah Stok</td>
 			</tr>
 			<tr>
-				<td style="width: 30%">Kondisi</td>
+				<th style="width: 30%">Kondisi</th>
 				<td th:text="${produk.kondisi}">Kondisi</td>
 			</tr>
+			<tr>
+				<th style="width: 30%">Status</th>
+				<td th:text="${produk.flagAktif?'Aktif':'Tidak Aktif'}">Status</td>
+			</tr>
 		</table>
-	</div>
-	<div class="row">
-		<div class="col-sm-3">
-			<a th:href="'/product/update/'+${produk.id}">
-				<button class="btn btn-primary">Ubah Data Produk</button>
-			</a>
-		</div>
-		<div class="col-sm-3" th:if="${produk.flagAktif == 1}">
-			<a th:href="'/product/deactive/'+${produk.id}">
-				<button class="btn btn-danger">Nonaktifkan Produk</button>
-			</a>
+		
+		<br/>
+		<div class="row">
+			<div class="col-sm-2">
+				<a th:href="'/product/update/'+${produk.id}">
+					<button class="btn btn-primary">Ubah Data Produk</button>
+				</a>
+			</div>
+			<div class="col-sm-2" th:if="${produk.flagAktif}">
+				<a th:href="'/product/deactive/'+${produk.id}">
+					<button class="btn btn-danger">Nonaktifkan Produk</button>
+				</a>
+			</div>
 		</div>
 	</div>
 </body>
 
 <footer>
+	<br/>
 	<div th:replace="fragments/footer :: footer"></div>
 </footer>
 </html>
