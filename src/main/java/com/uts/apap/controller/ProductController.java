@@ -82,4 +82,11 @@ public class ProductController {
 		model.addAttribute("title", "Detail Produk " + product.getNama());
 		return "redirect:/product/view/" + id + "?statusUpdate=success";
 	}
+	
+	@RequestMapping("/product/add")
+	public String add(Model model) {
+		
+		model.addAttribute("title", "Tambah Produk Baru");
+		return "form-add";
+	}
 }

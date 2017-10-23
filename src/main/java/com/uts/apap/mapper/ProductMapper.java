@@ -2,6 +2,7 @@ package com.uts.apap.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
@@ -29,7 +30,7 @@ public interface ProductMapper {
 	})
 	List<ProductModel> selectAllProduct();
 	
-	@Select("SELECT * FROM product WHERE id=#{id}")
+	@Select("SELECT * FROM product WHERE id=#{id} LIMIT 1")
 	@Results(value = {
 			@Result(property="id", column="id"),
 			@Result(property="nama", column="nama"),
@@ -48,4 +49,9 @@ public interface ProductMapper {
 	@Update("UPDATE product SET nama=#{nama}, deskripsi=#{deskripsi}, kategori=#{kategori}, pabrikan=#{pabrikan}, berat=#{berat}, "
 			+ "harga=#{harga}, tahun_produksi=#{tahunProduksi}, jumlah_stok=#{jumlahStok}, kondisi=#{kondisi} WHERE id=#{id}")
 	void updateProduct(ProductModel product);
+	
+	@Insert("INSERT INTO product (nama, deskripsi, kategori, pabrikan, berat, harga, tahun_produksi, jumlah_stok, kondisi, flag_aktif) "
+			+ "VALUES (#{nama}, #{deskripsi}, #{kategori}, #{pabrikan}, #{berat}, #{harga}, #{tahunProduksi}, #{jumlahStok}, "
+			+ "#{kondisi}, 1)")
+	void insertProduct(ProductModel product);
 }

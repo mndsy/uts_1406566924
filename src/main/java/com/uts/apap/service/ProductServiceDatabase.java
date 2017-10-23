@@ -34,4 +34,10 @@ public class ProductServiceDatabase implements ProductService {
 		productMapper.updateProduct(product);
 	}
 
+	@Override
+	public void addProduct(ProductModel product) {
+		log.info("add product with name {}", product.getNama());
+		productMapper.insertProduct(product);
+	}
+
 }
