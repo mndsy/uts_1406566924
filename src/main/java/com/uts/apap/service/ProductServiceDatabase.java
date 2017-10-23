@@ -28,4 +28,10 @@ public class ProductServiceDatabase implements ProductService {
 		return productMapper.selectProduct(id);
 	}
 
+	@Override
+	public void updateProduct(ProductModel product) {
+		log.info("update product with id {}", product.getId());
+		productMapper.updateProduct(product);
+	}
+
 }

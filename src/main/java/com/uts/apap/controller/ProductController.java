@@ -36,10 +36,19 @@ public class ProductController {
 	
 	@RequestMapping("/product/view/{id}")
 	public String view(Model model, @PathVariable(value="id") int id) {
-		ProductModel produk = productDAO.getProduct(id);
+		ProductModel product = productDAO.getProduct(id);
 		
-		model.addAttribute("produk", produk);
-		model.addAttribute("title", "Detail Produk " + produk.getNama());
+		model.addAttribute("produk", product);
+		model.addAttribute("title", "Detail Produk " + product.getNama());
 		return "view-detail";
+	}
+	
+	@RequestMapping("/product/update/{id}")
+	public String update(Model model, @PathVariable(value="id") int id) {
+		ProductModel product = productDAO.getProduct(id);
+		
+		model.addAttribute("produk", product);
+		model.addAttribute("title", "Ubah Data Produk " + product.getNama());
+		return "form-update";
 	}
 }

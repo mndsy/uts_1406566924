@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import com.uts.apap.model.ProductModel;
 
@@ -43,4 +44,8 @@ public interface ProductMapper {
 			@Result(property="flagAktif", column="flag_aktif")
 	})
 	ProductModel selectProduct(int id);
+	
+	@Update("UPDATE product SET nama=#{nama}, deskripsi=#{deskripsi}, kategori=#{kategori}, pabrikan=#{pabrikan}, berat=#{berat}, "
+			+ "harga=#{harga}, tahun_produksi=#{tahunProduksi}, jumlah_stok=#{jumlahStok}, kondisi=#{kondisi} WHERE id=#{id}")
+	void updateProduct(ProductModel product);
 }
