@@ -19,8 +19,8 @@
 		<table style="width: 100%" class="table table-hover" id="table">
 			<thead>
 				<tr>
-					<th class="text-center" style="width: 10%;" th:text="'No.'">No.</th>
-					<th class="text-center" style="width: 15%;" th:text="'Nama Produk'">Nama Produk</th>
+					<th class="text-center" style="width: 5%;" th:text="'No.'">No.</th>
+					<th class="text-center" style="width: 20%;" th:text="'Nama Produk'">Nama Produk</th>
 					<th class="text-center" style="width: 30%;" th:text="'Deskripsi Produk'">Deskripsi Produk</th>
 					<th class="text-center" style="width: 20%;" th:text="'Kategori Produk'">Kategori Produk</th>
 					<th class="text-center" style="width: 15%;" th:text="'Pabrikan'">Pabrikan</th>
@@ -30,8 +30,8 @@
 			<tbody>
 				<tr th:each="produk, iterationStatus: ${listProduk}">
 					<td class="text-center" th:text="${iterationStatus.count}">1</td>
-					<td class="text-center" th:text="${produk.nama}">Nama</td>
-					<td class="text-center" th:text="${produk.deskripsi}">Deskripsi</td>
+					<td class="text-left" th:text="${produk.nama}">Nama</td>
+					<td class="text-left" th:text="${produk.deskripsi}">Deskripsi</td>
 					<td class="text-center" th:text="${produk.kategori}">Kategori</td>
 					<td class="text-center" th:text="${produk.pabrikan}">Pabrikan</td>
 					<td class="text-center"></td>
@@ -42,6 +42,7 @@
 </body>
 
 <footer>
+	<br/>
 	<div th:replace="fragments/footer :: footer"></div>
 </footer>
 </html>
