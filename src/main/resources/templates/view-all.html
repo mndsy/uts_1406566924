@@ -30,7 +30,7 @@
 			<tbody>
 				<tr th:each="produk, iterationStatus: ${listProduk}">
 					<td class="text-center" th:text="${iterationStatus.count}">1</td>
-					<td class="text-left" th:text="${produk.nama}">Nama</td>
+					<td class="text-left"><a th:text="${produk.nama}" th:href="'/product/view/' + ${produk.id}">Nama</a></td>
 					<td class="text-left" th:text="${produk.deskripsi}">Deskripsi</td>
 					<td class="text-center" th:text="${produk.kategori}">Kategori</td>
 					<td class="text-center" th:text="${produk.pabrikan}">Pabrikan</td>
