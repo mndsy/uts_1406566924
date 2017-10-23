@@ -40,4 +40,10 @@ public class ProductServiceDatabase implements ProductService {
 		productMapper.insertProduct(product);
 	}
 
+	@Override
+	public void deactive(ProductModel product) {
+		log.info("deactive product with id {}", product.getId());
+		
+	}
+
 }

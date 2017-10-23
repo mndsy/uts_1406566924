@@ -11,4 +11,5 @@ public interface ProductService {
 	
 	void updateProduct(ProductModel product);
 	void addProduct(ProductModel product);
+	void deactive(ProductModel product);
 }

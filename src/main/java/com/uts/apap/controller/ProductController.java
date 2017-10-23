@@ -116,4 +116,13 @@ public class ProductController {
 		
 		return "redirect:/product/viewall?stat=success";
 	}
+	
+	@RequestMapping("/product/deactive/{id}")
+	public String deactive(Model model, @PathVariable(value="id") int id) {
+		ProductModel product = productDAO.getProduct(id);
+		
+		productDAO.deactive(product);
+		
+		return "redirect:/product/view/" + id + "?stat=success";
+	}
 }

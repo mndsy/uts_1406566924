@@ -54,4 +54,7 @@ public interface ProductMapper {
 			+ "VALUES (#{nama}, #{deskripsi}, #{kategori}, #{pabrikan}, #{berat}, #{harga}, #{tahunProduksi}, #{jumlahStok}, "
 			+ "#{kondisi}, 1)")
 	void insertProduct(ProductModel product);
+	
+	@Update("UPDATE product SET flag_aktif=0 WHERE id=#{id}")
+	void deactive(int id);
 }
