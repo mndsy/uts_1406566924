@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<div th:replace="fragments/head :: head"></div>
+</head>
+
+<body>
+	<div th:replace="fragments/navbar :: navbar"></div>
+
+	<div class="container">
+		<br />
+		
+		<h3 th:text="'Daftar Seluruh Produk'">Judul Halaman</h3>
+		
+		<hr />
+		<br />
+		
+		<table style="width: 100%" class="table table-hover" id="table">
+			<thead>
+				<tr>
+					<th class="text-center" style="width: 10%;" th:text="'No.'">No.</th>
+					<th class="text-center" style="width: 15%;" th:text="'Nama Produk'">Nama Produk</th>
+					<th class="text-center" style="width: 30%;" th:text="'Deskripsi Produk'">Deskripsi Produk</th>
+					<th class="text-center" style="width: 20%;" th:text="'Kategori Produk'">Kategori Produk</th>
+					<th class="text-center" style="width: 15%;" th:text="'Pabrikan'">Pabrikan</th>
+					<th class="text-center" style="width: 10%;" th:text="'Aksi'">Aksi</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="produk, iterationStatus: ${listProduk}">
+					<td class="text-center" th:text="${iterationStatus.count}">1</td>
+					<td class="text-center" th:text="${produk.nama}">Nama</td>
+					<td class="text-center" th:text="${produk.deskripsi}">Deskripsi</td>
+					<td class="text-center" th:text="${produk.kategori}">Kategori</td>
+					<td class="text-center" th:text="${produk.pabrikan}">Pabrikan</td>
+					<td class="text-center"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+
+<footer>
+	<div th:replace="fragments/footer :: footer"></div>
+</footer>
+</html>
