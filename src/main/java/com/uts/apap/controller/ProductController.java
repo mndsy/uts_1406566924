@@ -27,9 +27,10 @@ public class ProductController {
 	}
 	
 	@RequestMapping("/product/viewall")
-	public String viewAll(Model model) {
+	public String viewAll(Model model, @RequestParam(value="stat", required=false) String stat) {
 		List<ProductModel> listProduk = productDAO.getAllProducts();
 		
+		model.addAttribute("stat", stat);
 		model.addAttribute("listProduk", listProduk);
 		model.addAttribute("title", "Daftar Seluruh Produk");
 		return "view-all";
@@ -37,10 +38,10 @@ public class ProductController {
 	
 	@RequestMapping("/product/view/{id}")
 	public String view(Model model, @PathVariable(value="id") int id, 
-			@RequestParam(value="statusUpdate", required=false) String statusUpdate) {
+			@RequestParam(value="stat", required=false) String stat) {
 		ProductModel product = productDAO.getProduct(id);
 		
-		model.addAttribute("statusUpdate", statusUpdate);
+		model.addAttribute("stat", stat);
 		model.addAttribute("produk", product);
 		model.addAttribute("title", "Detail Produk " + product.getNama());
 		return "view-detail";
