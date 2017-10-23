@@ -23,7 +23,7 @@ public class ProductController {
 	@RequestMapping("/")
 	public String index(Model model) {
 		model.addAttribute("title", "Home");
-		return "index";
+		return "redirect:/product/viewall";
 	}
 	
 	@RequestMapping("/product/viewall")
@@ -41,19 +41,29 @@ public class ProductController {
 			@RequestParam(value="stat", required=false) String stat) {
 		ProductModel product = productDAO.getProduct(id);
 		
-		model.addAttribute("stat", stat);
-		model.addAttribute("produk", product);
-		model.addAttribute("title", "Detail Produk " + product.getNama());
-		return "view-detail";
+		if(product == null) {
+			return "product-not-found";
+		}
+		else {
+			model.addAttribute("stat", stat);
+			model.addAttribute("produk", product);
+			model.addAttribute("title", "Detail Produk " + product.getNama());
+			return "view-detail";
+		}
 	}
 	
 	@RequestMapping("/product/update/{id}")
 	public String update(Model model, @PathVariable(value="id") int id) {
 		ProductModel product = productDAO.getProduct(id);
 		
-		model.addAttribute("produk", product);
-		model.addAttribute("title", "Ubah Data Produk " + product.getNama());
-		return "form-update";
+		if(product == null) {
+			return "product-not-found";
+		}
+		else {
+			model.addAttribute("produk", product);
+			model.addAttribute("title", "Ubah Data Produk " + product.getNama());
+			return "form-update";
+		}
 	}
 	
 	@RequestMapping("/product/update/submit")
@@ -121,8 +131,12 @@ public class ProductController {
 	public String deactive(Model model, @PathVariable(value="id") int id) {
 		ProductModel product = productDAO.getProduct(id);
 		
-		productDAO.deactive(product);
-		
-		return "redirect:/product/view/" + id + "?stat=success";
+		if(product == null) {
+			return "product-not-found";
+		}
+		else {
+			productDAO.deactive(product);
+			return "redirect:/product/view/" + id + "?stat=success";
+		}
 	}
 }

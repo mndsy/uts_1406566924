@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<div th:replace="fragments/head :: head"></div>
+</head>
+
+<body>
+	<div th:replace="fragments/navbar :: navbar"></div>
+
+	<div class="container">
+		<br/>
+		<div class="alert alert-warning">
+			<h3>Ooops! Produk Tidak Ditemukan!</h3>
+			<hr/>
+			Produk yang Anda cari tidak dapat ditemukan, aksi yang Anda lakukan dibatalkan.
+		</div>
+		
+	</div>
+</body>
+
+<footer>
+	<br/>
+	<div th:replace="fragments/footer :: footer"></div>
+</footer>
+</html>

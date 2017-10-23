@@ -10,14 +10,11 @@
 		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 			<div class="navbar-nav">
 				<a class="nav-item nav-link"
-					th:classappend="${#httpServletRequest.getRequestURI() == '/' ? 'active':''}"
-					th:href="@{/}">Home</a> 
-				<a class="nav-item nav-link"
-					th:classappend="${#httpServletRequest.getRequestURI() == '/penduduk/cari' ? 'active':''}"
+					th:classappend="${#httpServletRequest.getRequestURI() == '/product/viewall' ? 'active':''}"
 					th:href="@{/product/viewall}">Daftar Produk</a> 
-				<a class="nav-item nav-link"
+				<!-- <a class="nav-item nav-link"
 					th:classappend="${#httpServletRequest.getRequestURI() == '/penduduk/tambah' ? 'active':''}"
-					th:href="@{/about}">Tentang</a>
+					th:href="@{/about}">Tentang</a> -->
 			</div>
 		</div>
 	</nav>
